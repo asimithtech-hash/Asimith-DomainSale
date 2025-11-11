@@ -6,7 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return 'yourdomain.com';
         }
         
-        hostname = hostname.replace(/^www\./, '');
+        const parts = hostname.split('.');
+        
+        if (parts.length >= 2) {
+            return parts.slice(-2).join('.');
+        }
         
         return hostname;
     }

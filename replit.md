@@ -35,9 +35,10 @@ Preferred communication style: Simple, everyday language.
 
 **How it works**: 
 1. On page load, JavaScript reads `window.location.hostname` to detect the current domain
-2. The domain is normalized (strips "www." prefix)
+2. The main domain is extracted by taking the last two parts (second-level domain + TLD)
+   - This handles subdomains automatically: `www.example.com` → `example.com`, `blog.asimith.ai` → `asimith.ai`
 3. For localhost/127.0.0.1, defaults to "yourdomain.com" as a placeholder
-4. All placeholder elements in the HTML are populated with the detected domain name
+4. All placeholder elements in the HTML are populated with the detected main domain name
 5. Page title, header, content sections, and email addresses are all updated dynamically
 
 **Implementation Details**:

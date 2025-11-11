@@ -91,9 +91,12 @@ The `script.js` file dynamically updates the following elements:
 The landing page automatically detects which domain it's running on and updates all content dynamically:
 
 1. **Domain Detection**: JavaScript reads `window.location.hostname` to get the current domain
-2. **Auto-Population**: Updates page title, header, content, and email addresses with the detected domain
-3. **Localhost Handling**: Shows "yourdomain.com" as a placeholder when running locally
-4. **www Handling**: Automatically strips "www." prefix (e.g., www.example.com becomes example.com)
+2. **Main Domain Extraction**: Automatically extracts the main domain, even from subdomains
+   - `www.asimith.ai` → `asimith.ai`
+   - `blog.example.com` → `example.com`
+   - `shop.mydomain.io` → `mydomain.io`
+3. **Auto-Population**: Updates page title, header, content, and email addresses with the detected domain
+4. **Localhost Handling**: Shows "yourdomain.com" as a placeholder when running locally
 
 ### Email Integration
 
